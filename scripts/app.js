@@ -19,7 +19,6 @@ function createGrid(number) {
   }
 
   const column = document.querySelectorAll(".column");
-  const row = document.querySelectorAll(".row");
 
   // Fill the hovered squares
   (function hoverOver() {
@@ -38,19 +37,30 @@ function changeGrid() {
     16
   );
 
+  if (userGridNumber === null) {
+    return;
+  } else if (userGridNumber > 99) {
+    alert("Please enter a number lower than 100");
+    changeGrid();
+  } else if (userGridNumber < 1) {
+    alert("Please enter a number higher than 0");
+    changeGrid();
+  } else {
+    while (container.firstChild) {
+      container.removeChild(container.firstChild);
+    }
+    createGrid(userGridNumber);
+  }
+}
+
+function clearGrid() {
+  numberRows = document.querySelectorAll(".row").length;
+
   while (container.firstChild) {
     container.removeChild(container.firstChild);
   }
 
-  if (userGridNumber < 1) {
-    alert("Please enter a number higher than 0");
-    changeGrid();
-  } else if (userGridNumber > 99) {
-    alert("Please enter a number lower than 100");
-    changeGrid();
-  } else {
-    createGrid(userGridNumber);
-  }
+  createGrid(numberRows);
 }
 
 createGrid(16);
