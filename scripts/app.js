@@ -1,8 +1,8 @@
 const container = document.querySelector("#container");
 
-function createGrid() {
-  const numberColumns = 16;
-  const numberRows = 16;
+function createGrid(number) {
+  const numberColumns = number;
+  const numberRows = number;
 
   // Create numberRows of rows
   /* Inside each row create numberColumns of equal squares,
@@ -17,20 +17,40 @@ function createGrid() {
       createColumn.className = "column";
     }
   }
+
+  const column = document.querySelectorAll(".column");
+  const row = document.querySelectorAll(".row");
+
+  // Fill the hovered squares
+  (function hoverOver() {
+    for (let i = 0; i < column.length; i++) {
+      column[i].onmouseover = function () {
+        column[i].classList.add("hovered");
+      };
+    }
+  })();
 }
 
-createGrid();
+// Clear the old grid and change it with user userGridNumber
+function changeGrid() {
+  userGridNumber = prompt(
+    "Please enter the desired number of squares per side:",
+    16
+  );
 
-const column = document.querySelectorAll(".column");
-const row = document.querySelectorAll(".row");
+  while (container.firstChild) {
+    container.removeChild(container.firstChild);
+  }
 
-// Fill the hovered squares
-function hoverOver() {
-  for (let i = 0; i < column.length; i++) {
-    column[i].onmouseover = function () {
-      column[i].classList.add("hovered");
-    };
+  if (userGridNumber < 1) {
+    alert("Please enter a number higher than 0");
+    changeGrid();
+  } else if (userGridNumber > 99) {
+    alert("Please enter a number lower than 100");
+    changeGrid();
+  } else {
+    createGrid(userGridNumber);
   }
 }
 
-hoverOver();
+createGrid(16);
