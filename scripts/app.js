@@ -1,4 +1,5 @@
 const container = document.querySelector("#grid-container");
+const body = document.body;
 
 function createGrid(number) {
   const numberColumns = number;
@@ -24,7 +25,13 @@ function createGrid(number) {
   (function hoverOver() {
     for (let i = 0; i < column.length; i++) {
       column[i].onmouseover = function () {
-        column[i].classList.add("hovered");
+        if (body.classList.contains("rainbow-background")) {
+          column[i].style.backgroundColor = rainbowPencil();
+          column[i].classList.add("hovered");
+        } else {
+          column[i].style.backgroundColor = "black";
+          column[i].classList.add("hovered");
+        }
       };
     }
   })();
@@ -61,6 +68,34 @@ function clearGrid() {
   }
 
   createGrid(numberRows);
+}
+
+// Change pencil color to rainbow and change background color to rainbow
+function rainbowMode() {
+  if (body.classList.contains("rainbow-background")) {
+    body.classList.remove("rainbow-background");
+  } else {
+    body.classList.add("rainbow-background");
+  }
+}
+
+// Randomly select a rainbow color
+function rainbowPencil() {
+  const colors = [
+    "#ff2400",
+    "#e81d1d",
+    "#e8b71d",
+    "#e3e81d",
+    "#1de840",
+    "#1ddde8",
+    "#2b1de8",
+    "#dd00f3",
+    "#dd00f3",
+  ];
+
+  let randomColor = colors[Math.floor(Math.random() * colors.length)];
+
+  return randomColor;
 }
 
 createGrid(16);
