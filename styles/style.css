@@ -10,7 +10,7 @@ html {
   box-sizing: inherit;
 }
 
-body {
+body{
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -25,8 +25,7 @@ button {
   margin-bottom: 26px;
 }
 
-
-#container {
+#grid-container {
   display: flex;
   height: 520px;
   width: 520px;
@@ -49,3 +48,7 @@ button {
   background-color: black;
 }
 
+#buttons-container {
+  display: flex;
+  justify-content: space-around;
+}

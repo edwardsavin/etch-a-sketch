@@ -9,8 +9,13 @@
     <title>Etch-A-Sketch</title>
   </head>
   <body>
-    <button id="grid" onclick="changeGrid()">Grid</button>
-    <button id="clear" onclick="clearGrid()">Clear</button>
-    <div id="container"></div>
+    <div class="container" id="body-container">
+      <div class="container" id="buttons-container">
+        <button id="grid" onclick="changeGrid()">Grid</button>
+        <button id="rainbow" onclick="rainbowMode()">Rainbow</button>
+        <button id="clear" onclick="clearGrid()">Clear</button>
+      </div>
+      <div class="container" id="grid-container"></div>
+    </div>
   </body>
 </html>
