@@ -74,8 +74,10 @@ function clearGrid() {
 function rainbowMode() {
   if (body.classList.contains("rainbow-background")) {
     body.classList.remove("rainbow-background");
+    document.getElementById("title").classList.remove("rainbow-text");
   } else {
     body.classList.add("rainbow-background");
+    document.getElementById("title").classList.add("rainbow-text");
   }
 }
 
