@@ -8,15 +8,29 @@ function createGrid() {
   /* Inside each row create numberColumns of equal squares,
   the total of squares are considered a column*/
   for (let i = 0; i < numberRows; i++) {
-    const row = document.createElement("div");
-    container.appendChild(row);
-    row.className = "row";
+    const createRow = document.createElement("div");
+    container.appendChild(createRow);
+    createRow.className = "row";
     for (let j = 0; j < numberColumns; j++) {
-      const column = document.createElement("div");
-      row.appendChild(column);
-      column.className = "column";
+      const createColumn = document.createElement("div");
+      createRow.appendChild(createColumn);
+      createColumn.className = "column";
     }
   }
 }
 
 createGrid();
+
+const column = document.querySelectorAll(".column");
+const row = document.querySelectorAll(".row");
+
+// Fill the hovered squares
+function hoverOver() {
+  for (let i = 0; i < column.length; i++) {
+    column[i].onmouseover = function () {
+      column[i].classList.add("hovered");
+    };
+  }
+}
+
+hoverOver();
