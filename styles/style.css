@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;700&family=Open+Sans:wght@400;700&display=swap");
+
 html {
   box-sizing: border-box;
   height: 100%;
@@ -11,25 +13,43 @@ html {
 }
 
 body {
-  font-family: "Trebuchet MS", "Lucida Sans Unicode", "Lucida Grande",
-    "Lucida Sans", Arial, sans-serif;
+  font-family: "Montserrat", "Open Sans", sans-serif;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
   min-height: 100%;
   margin: 0;
+  background-color: rgb(238, 233, 233);
 }
 
 button {
-  height: 40px;
-  width: 80px;
   margin-bottom: 26px;
+  color: #090909;
+  padding: 0.7em 1.7em;
+  font-size: 18px;
+  border-radius: 0.5em;
+  background: #f3efef;
+  border: 1px solid #f3efef;
+  transition: all 0.3s;
+  box-shadow: 6px 6px 12px #9e9e9e, -6px -6px 12px #e4e4e4;
+}
+
+button:active {
+  color: #666;
+  box-shadow: inset 4px 4px 12px #c5c5c5, inset -4px -4px 12px #ffffff;
+}
+
+button:hover {
+  background: rgba(221, 221, 221, 0.199);
 }
 
 #title {
   display: flex;
   justify-content: center;
+  align-items: center;
+  height: 80px;
+  font-size: 4rem;
 }
 
 #grid-container {
@@ -62,7 +82,8 @@ button {
   justify-content: space-around;
 }
 
-.rainbow-background {
+.rainbow-background,
+#rainbow:hover {
   background: linear-gradient(
     124deg,
     #ff2400,
@@ -85,7 +106,12 @@ button {
 
 .rainbow-text {
   color: black;
-  -webkit-text-fill-color: rgba(255, 255, 255, 0); /* Will override color (regardless of order) */
+  -webkit-text-fill-color: rgba(
+    255,
+    255,
+    255,
+    0
+  ); /* Will override color (regardless of order) */
   -webkit-text-stroke-width: 1px;
   -webkit-text-stroke-color: black;
 }
