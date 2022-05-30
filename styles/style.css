@@ -44,9 +44,12 @@ button:hover {
   background: rgba(221, 221, 221, 0.199);
 }
 
-a, a:hover, a:focus, a:active {
+a,
+a:hover,
+a:focus,
+a:active {
   text-decoration: none;
-  color: #6667AB ;
+  color: #6667ab;
 }
 
 #title {

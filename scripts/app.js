@@ -52,6 +52,8 @@ function changeGrid() {
   } else if (userGridNumber < 1) {
     alert("Please enter a number higher than 0");
     changeGrid();
+  } else if (isNaN(userGridNumber)) {
+    alert("Please enter a valid number");
   } else {
     while (container.firstChild) {
       container.removeChild(container.firstChild);
